@@ -151,7 +151,7 @@ class LRUCache
                 continue;
             }
 
-            if ($value <= $nrOccurrence
+            if ($value < $nrOccurrence
                 || ($value === $nrOccurrence && $this->cacheList[$minKey]['expire'] < $this->cacheList[$key]['expire'])
             ) {
                 $minKey = $key;
