@@ -27,7 +27,6 @@ class MatrixTraversal
     ): ?int {
         $path[$index] = $matrix[$i][$j];
 
-        // travers in right direction
         if ($i === $m - 1) {
             for ($k = $j + 1; $k < $n; $k++) {
                 $path[$index + $k - $j] = $matrix[$i][$k];
@@ -36,7 +35,6 @@ class MatrixTraversal
             return null;
         }
 
-        // travers to down direction
         if ($j === $n - 1) {
             for ($k = $i + 1; $k < $m; $k++) {
                 $path[$index + $k - $i] = $matrix[$k][$j];
@@ -45,10 +43,7 @@ class MatrixTraversal
             return null;
         }
 
-        // Print all the paths that are possible after moving down
         self::getMaximunPathValue($matrix, $path, $m, $n, $i + 1, $j, $index + 1, $maximum);
-
-         // Print all the paths that are possible after moving right
         self::getMaximunPathValue($matrix, $path,  $m, $n, $i, $j + 1, $index + 1, $maximum);
 
         return $maximum;
@@ -62,7 +57,6 @@ class MatrixTraversal
      */
     private static function caculateMaximumValue(array $path, int $maximum = null): int
     {
-        /** @var int $sum */
         $sum = array_sum($path);
 
         if ($maximum < $sum) {
