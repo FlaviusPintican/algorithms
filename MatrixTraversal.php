@@ -2,7 +2,6 @@
 
 class MatrixTraversal
 {
-
     /**
      * @param array    $matrix
      * @param array    $path
